@@ -1,0 +1,21 @@
+Note to Authors: This is the standard materials and methods section for a mothur based analysis used at Vantage.  To correctly use this paragraph, please replace BranchABC* with the name of the branch you were provided along with the results.  For example, the analysis performed on the Standard MiSeq tutorial data is at tree/MiSeqExample.  All code will be available on these branches.
+
+Methods
+16S rDNA Amplicon Generation
+
+
+
+16S rDNA Amplicon Analysis
+Samples were analyzed using Mothur (Schloss, 2009) Version 1.36.0.  Specifically, analysis was performed using a standard MiSeq workflow developed at Vantage (https://github.com/scholzmb/VantageMothur/BranchABC*).  For a complete listing of commands, please see the github link.  Briefly, reads were assembled, checked for PCR duplicates, 
+
+
+
+
+
+
+
+
+Citations:
+Schloss, P.D., et al., Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol, 2009. 75(23):7537-41.
+
+
