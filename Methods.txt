@@ -2,14 +2,11 @@ Note to Authors: This is the standard materials and methods section for a mothur
 
 Methods
 16S rDNA Amplicon Generation
-
+DNA from extractions were amplified using XXX method
 
 
 16S rDNA Amplicon Analysis
-Samples were analyzed using Mothur (Schloss, 2009) Version 1.36.0.  Specifically, analysis was performed using a standard MiSeq workflow developed at Vantage (https://github.com/scholzmb/VantageMothur/BranchABC*).  For a complete listing of commands, please see the github link.  Briefly, reads were assembled, checked for PCR duplicates, 
-
-
-
+Samples were analyzed using Mothur (Schloss, 2009) Version 1.36.0.  Specifically, analysis was performed using a standard MiSeq workflow developed at Vantage (https://github.com/scholzmb/VantageMothur/BranchABC*).  For a complete listing of commands, please see the github link.  Briefly, reads were assembled, checked for PCR duplicates and other artifacts.  Following these steps, sequences were aligned to the Silva Gold database.  Alginments were used to remove poorly sequenced reads, as well as non-bacterial reads (plastid, mitochondiral, Eukaryotic DNA).  16S reads were clustered using a default cutoff of 0.03 identitity.  Samples were further subjected to automated and manual investigation of abundance differences between sample types.  All analysis is available at https://github.com/scholzmb/VantageMothur/BranchABC*.  
 
 
 
