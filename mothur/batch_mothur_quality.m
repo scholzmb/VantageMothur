@@ -2,6 +2,8 @@
 #
 # This is a batch file for running through the quality filtering steps of mothur
 #
+#  Original Script/comments written by by Dr. Tracy Teal
+
 # We will make use of the 'current' settings, so we don't have to type out the whole 
 # file names in each step. This also reduces typo errors and ensures you're using
 # the file that was created from the previous step.

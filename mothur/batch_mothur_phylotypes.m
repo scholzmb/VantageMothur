@@ -4,6 +4,8 @@
 #
 # Running Phylotype/Phylogenetic analysis from generic current inputs (results of system(mv) from batch_mothur_shared.m
 
+#  Original Script/comments written by by Dr. Tracy Teal
+
 #
 # --------------------------------------------------------------------------------- 
 #

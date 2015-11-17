@@ -2,6 +2,8 @@
 #
 # batch_mothur_shared.m
 #
+#  Original Script/comments written by by Dr. Tracy Teal
+
 # This is a batch file for running through the clustering and dist.seqs steps of mothur
 # resulting in a shared file
 #
