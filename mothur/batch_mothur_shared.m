@@ -43,5 +43,5 @@ phylotype(taxonomy=current)
 
 make.shared(list=current, count=current,label=1)
 
-classify.otus(list=current,count=current,taxonomy=current,label=1)
+classify.otu(list=current,count=current,taxonomy=current,label=1)
 get.current()
