@@ -2,9 +2,14 @@
 
 Sample Mothur workflows
 
+MAKE SURE YOUR GLOBAL CONFIG IS SET TO ONLY UPDATE CURRENT BRANCHES DURING PUSHES
+git config --global push.default=current
+
+
 git init
-git remote add origin -t <branchname> git@github.com:scholzmb/VantageMothur.git
+git remote add origin master git@github.com:scholzmb/VantageMothur.git
 git pull
+git branch <branchname>
 git checkout <branchname>
 
 
