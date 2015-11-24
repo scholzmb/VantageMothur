@@ -38,13 +38,19 @@ cluster.split(column=current, count=current, taxonomy=current, splitmethod=class
 # Make the shared file for 0.03 distance
 make.shared(list=current, count=current, label=0.03)
 
+#make rarefaction curve
 rarefaction.single(shared=current)
 
+#reclassify
 classify.otu(list=current,count=current,taxonomy=current,label=0.03)
 
+#generate phylotype information
 phylotype(taxonomy=current)
 
+#make genus level table for phylogeny
 make.shared(list=current, count=current,label=1)
 
+#classify them (names for OTUs)
 classify.otu(list=current,count=current,taxonomy=current,label=1)
+
 get.current()
