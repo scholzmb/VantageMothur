@@ -21,11 +21,12 @@
 # once and examined your output, do that first!
 # 
 ##############
+load.logfile(logfile=mothur.quality)
+set.logfile(name=mothur.shared)
 
 # Set the current files to the ones we generated from the quality sequencing
 # At the end we renamed our really long files to something shorter, so we
 # can use those names here. Put in your own names if you did something different.
-set.current(fasta=quality_sequences.fasta, count=quality_sequences.count_table, taxonomy=quality_sequences.taxonomy, processors=8, group=quality_sequences.groups)
 
 # Calculate the distance matrix
 dist.seqs(fasta=current, cutoff=0.2)

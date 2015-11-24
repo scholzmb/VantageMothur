@@ -16,6 +16,8 @@
 # once and examined your output, do that first!
 # 
 ##############
+set.logfile(name=mothur.quality)
+
 
 # Make contigs
 # Join the paired ends
