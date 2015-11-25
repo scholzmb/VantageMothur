@@ -1,2 +1,0 @@
-SampleName	ConditionType
-
