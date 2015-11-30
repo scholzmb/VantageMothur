@@ -1,28 +1,29 @@
 
 
-Sample Mothur workflows
+#Sample Mothur workflows
 
-MAKE SURE YOUR GLOBAL CONFIG IS SET TO ONLY UPDATE CURRENT BRANCHES DURING PUSHES
+##MAKE SURE YOUR GLOBAL CONFIG IS SET TO ONLY UPDATE CURRENT BRANCHES DURING PUSHES
+
+```bash
 git config --global push.default=current
-
-
 git init
 git remote add origin master git@github.com:scholzmb/VantageMothur.git
 git pull
 git branch <branchname>
 git checkout <branchname>
-
+```
 
 mothur/ directory holds batch.m files for varying steps.
+run, in order 
+1. mothur_batch_quality.m
+2. mothur_batch_shared.m
+3. mothur_batch_phylotypes.m
 
-order:
-mothur_batch_quality.m
-mothur_batch_shared.m
-mothur_batch_phylotypes.m
 
-sample sheets:
+data/ contains sample sheets (also link.copy data here):
 stability.files (sample name\tread files)
 sampleTable.txt (sample name\tSampleType)
 
+For alignment, you will need to symlink/copy Silva.v4. and silva.bacteria data/
 
-For alignment, you will need to symlink/copy Silva.v4. and silva.bacteria to mothur/
+run mothur batch files from data/
