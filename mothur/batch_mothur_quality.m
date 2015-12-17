@@ -82,7 +82,7 @@ classify.seqs(fasta=current, count=current, reference=trainset9_032012.pds.fasta
 remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)
 
 # Take out the Mock sample from the dataset
-# remove.groups(fasta=current, count=current, taxonomy=current, groups=Mock)
+ remove.groups(fasta=current, count=current, taxonomy=current, groups=Mock)
 
 # Now we have a good set of quality sequences!
 
