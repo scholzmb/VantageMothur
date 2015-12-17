@@ -1,0 +1,3 @@
+#Mothur commands that can be changed depending on sample type/size/???
+
+

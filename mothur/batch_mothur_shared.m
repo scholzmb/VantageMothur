@@ -21,6 +21,7 @@
 # once and examined your output, do that first!
 # 
 ##############
+
 load.logfile(logfile=mothur.quality)
 set.logfile(name=mothur.shared)
 

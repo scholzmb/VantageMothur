@@ -36,6 +36,7 @@ screen.seqs(fasta=stability.trim.contigs.fasta, group=stability.contigs.groups, 
 unique.seqs(fasta=current)
 
 # Simplify the names and groups files 
+#Generate new count file using uniques from previous command
 count.seqs(name=current, group=current)
 
 # We're assuming that we already made the pcr file that's the appropriate size
@@ -43,6 +44,7 @@ count.seqs(name=current, group=current)
 # Here it's been created, is in this directory and is called silva.v4.fasta
 # Align our sequences to that reference
 # This is one of the most computationally intensive steps in this file
+# reference can be changed.
 align.seqs(fasta=current, reference=silva.bacteria.fasta, flip=t)
 
 
@@ -51,15 +53,20 @@ align.seqs(fasta=current, reference=silva.bacteria.fasta, flip=t)
 summary.seqs(fasta=current, count=current)
 
 # Get rid of sequences that don't align well
+# ASSUMES V4 PCR
 screen.seqs(fasta=current, count=current, summary=current, start=13862, end=23444, maxhomop=8)
 
 # To reduce dataset size, get rid of columns with no information
 # Get rid of columns in the file that only contain gaps '-' or overhang '.'
+# MAKES FASTA uniform, deletes un-useful data, if screen is done wrong, will result in size 0 files
 filter.seqs(fasta=current, vertical=T, trump=.)
 
 # Now that we've aligned the sequences, we might see more that are identical
 # Pare the dataset down to just the unique aligned ones
+# NEED TO COUNT again
 unique.seqs(fasta=current, count=current)
+count.seqs(name=current,group=current)
+
 
 # Pre-cluster to reduce dataset size
 pre.cluster(fasta=current, count=current, diffs=2)
@@ -75,7 +82,7 @@ classify.seqs(fasta=current, count=current, reference=trainset9_032012.pds.fasta
 remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)
 
 # Take out the Mock sample from the dataset
-remove.groups(fasta=current, count=current, taxonomy=current, groups=Mock)
+# remove.groups(fasta=current, count=current, taxonomy=current, groups=Mock)
 
 # Now we have a good set of quality sequences!
 
