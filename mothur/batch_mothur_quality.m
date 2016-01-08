@@ -27,7 +27,9 @@ make.contigs(file=stability.files, processors=8)
 # Get rid of sequences that are the wrong length or have ambiguous base pairs.
 # We're limiting the length to 275 because we expect our sequences to be about 251 bp
 # and this gives some flexibility
-screen.seqs(fasta=stability.trim.contigs.fasta, group=stability.contigs.groups, maxambig=0, maxlength=275, processors=8)
+
+#testing to see if 1 ambig is acceptable
+screen.seqs(fasta=stability.trim.contigs.fasta, group=stability.contigs.groups, maxambig=1, maxlength=275, processors=8)
 
 # Get only the unique sequences
 # This reduces our data set size for further processing
@@ -81,8 +83,8 @@ remove.seqs(fasta=current, accnos=current)
 classify.seqs(fasta=current, count=current, reference=trainset9_032012.pds.fasta, taxonomy=trainset9_032012.pds.tax, cutoff=80)
 remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)
 
-# Take out the Mock sample from the dataset
- remove.groups(fasta=current, count=current, taxonomy=current, groups=Mock)
+# If available, Take out the Mock sample from the dataset
+# remove.groups(fasta=current, count=current, taxonomy=current, groups=Mock)
 
 # Now we have a good set of quality sequences!
 
@@ -100,9 +102,11 @@ get.current()
 #count=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.pick.count_table
 #processors=8
 #summary=stability.trim.contigs.good.unique.summary
-system(mv stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.fasta quality_sequences.fasta)
-system(mv stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.pick.taxonomy quality_sequences.taxonomy)
-system(mv stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.pick.count_table quality_sequences.count_table)
+
+#if using MOCK, add extra .pick
+system(mv stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta quality_sequences.fasta)
+system(mv stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy quality_sequences.taxonomy)
+system(mv stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table quality_sequences.count_table)
 system(mv stability.contigs.good.groups quality_sequences.groups)
 
 quit()
