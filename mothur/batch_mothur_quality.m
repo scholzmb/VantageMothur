@@ -104,9 +104,9 @@ get.current()
 #summary=stability.trim.contigs.good.unique.summary
 
 #if using MOCK, add extra .pick
-system(mv stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta quality_sequences.fasta)
-system(mv stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy quality_sequences.taxonomy)
-system(mv stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table quality_sequences.count_table)
-system(mv stability.contigs.good.groups quality_sequences.groups)
+system(ln -s stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta quality_sequences.fasta)
+system(ln -s stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy quality_sequences.taxonomy)
+system(ln -s stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table quality_sequences.count_table)
+system(ln -s stability.contigs.good.groups quality_sequences.groups)
 
 quit()
