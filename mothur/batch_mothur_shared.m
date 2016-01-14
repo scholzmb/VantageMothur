@@ -46,22 +46,25 @@ rarefaction.single(shared=current)
 classify.otu(list=current,count=current,taxonomy=current,label=0.03)
 
 #generate phylotype information
-phylotype(taxonomy=current)
+#phylotype(taxonomy=current)
 
 #make genus level table for phylogeny
-make.shared(list=current, count=current,label=1)
+#make.shared(list=current, count=current,label=1)
 
 #classify them (names for OTUs)
-classify.otu(list=current,count=current,taxonomy=current,label=1)
+#classify.otu(list=current,count=current,taxonomy=current,label=1)
 
 #######################
 # written by Matthew Scholz
 # take outputs from batch_mothur_shared.m and use them for analysis
 #first read in variables from last logfile
 
-load.logfile(name=mothur.shared)
-set.logfile(name=mothur.analysis)
+#phylogenetic diversity assignments:
+dist.seqs(fasta=current,output=lt)
+clearcut(phylip=current)
 
+count.groups(shared=current)
+sub.sample(shared=current)
 
 ##charts for alpha diversity accuracy
 #alpha = richness/diversity
