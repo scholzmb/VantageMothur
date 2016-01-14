@@ -66,6 +66,11 @@ clearcut(phylip=current)
 count.groups(shared=current)
 sub.sample(shared=current)
 
+####################################
+# OTU based analysis (no phylogeny involved)
+#
+###################################
+
 ##charts for alpha diversity accuracy
 #alpha = richness/diversity
 #richness = # OTUs
@@ -142,4 +147,36 @@ amova(phylip=current, design=experimental.design)
 #what about the variance itself? Does it change between groups?
 homova(phylip=current, design=experimental.design)
 
+#let's find axes responsible for variation for OTUs responsible for most variance along X axes
+#can change numaxes depending on structure
 
+#if metatadata, include metadata=metadata.txt
+corr.axes(axes=current, shared=current, method=spearman, numaxes=3)
+
+#let's predict how many communities the data indicate, without groups:
+get.communitytype(shared=current)
+#analyze the relabund file to see if it matches our expectaions
+
+
+#metastats (non-parametric t-test)
+metastats(shared=current,design=experimental.design)
+
+#lefse
+lefse(shared=current,design=experimental.design)
+
+#indicator analysis 
+indicator(shared=current, design=experimental.design)
+
+#classify.rf = random forest to find discriminatory OTUs
+classify.rf(shared=current, design=experimental.design)
+
+
+######################################
+#TODO: Redo all analyses using phylotypes
+#
+######################################
+
+###################
+#Begin Phylogeny level analysis
+#
+##################
