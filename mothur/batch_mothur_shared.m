@@ -87,7 +87,7 @@ collect.single(shared=current,calc=chao-invsimpson,freq=100)
 rarefaction.single(stability=current,calc=sobs,freq=100)
 
 #summary single ##double check notes for which calcs are useful
-summary.single(shared=stability.an.shared, calc=nseqs-coverage-sobs-invsimpson, subsample=T)
+summary.single(shared=current, calc=nseqs-coverage-sobs-invsimpson, subsample=T)
 
 ##End alpha diversity
 
