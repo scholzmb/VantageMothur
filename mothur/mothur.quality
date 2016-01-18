@@ -1,0 +1,666 @@
+Linux version
+
+Using ReadLine
+
+Using default file location /usr/analysis/tools/mothur-1.36.1/
+
+Running 64Bit Version
+
+mothur v.1.36.1
+Last updated: 7/27/2015
+
+by
+Patrick D. Schloss
+
+Department of Microbiology & Immunology
+University of Michigan
+pschloss@umich.edu
+http://www.mothur.org
+
+When using, please cite:
+Schloss, P.D., et al., Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol, 2009. 75(23):7537-41.
+
+Distributed under the GNU General Public License
+
+Type 'help()' for information on the commands that are available
+
+Type 'quit()' to exit program
+Batch Mode
+
+
+mothur > set.logfile(name=mothur.quality)
+
+mothur > make.contigs(file=stability.files, processors=8)
+
+Using 8 processors.
+
+>>>>>	Processing file pair F3D0_S188_L001_R1_001.fastq - F3D0_S188_L001_R2_001.fastq (files 1 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 5 secs to assemble 7793 reads.
+
+
+>>>>>	Processing file pair F3D141_S207_L001_R1_001.fastq - F3D141_S207_L001_R2_001.fastq (files 2 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 3 secs to assemble 5958 reads.
+
+
+>>>>>	Processing file pair F3D142_S208_L001_R1_001.fastq - F3D142_S208_L001_R2_001.fastq (files 3 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 2 secs to assemble 3183 reads.
+
+
+>>>>>	Processing file pair F3D143_S209_L001_R1_001.fastq - F3D143_S209_L001_R2_001.fastq (files 4 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 2 secs to assemble 3178 reads.
+
+
+>>>>>	Processing file pair F3D144_S210_L001_R1_001.fastq - F3D144_S210_L001_R2_001.fastq (files 5 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 4 secs to assemble 4827 reads.
+
+
+>>>>>	Processing file pair F3D145_S211_L001_R1_001.fastq - F3D145_S211_L001_R2_001.fastq (files 6 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 4 secs to assemble 7377 reads.
+
+
+>>>>>	Processing file pair F3D146_S212_L001_R1_001.fastq - F3D146_S212_L001_R2_001.fastq (files 7 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 4 secs to assemble 5021 reads.
+
+
+>>>>>	Processing file pair F3D147_S213_L001_R1_001.fastq - F3D147_S213_L001_R2_001.fastq (files 8 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 8 secs to assemble 17070 reads.
+
+
+>>>>>	Processing file pair F3D148_S214_L001_R1_001.fastq - F3D148_S214_L001_R2_001.fastq (files 9 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 6 secs to assemble 12405 reads.
+
+
+>>>>>	Processing file pair F3D149_S215_L001_R1_001.fastq - F3D149_S215_L001_R2_001.fastq (files 10 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 7 secs to assemble 13083 reads.
+
+
+>>>>>	Processing file pair F3D150_S216_L001_R1_001.fastq - F3D150_S216_L001_R2_001.fastq (files 11 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 3 secs to assemble 5509 reads.
+
+
+>>>>>	Processing file pair F3D1_S189_L001_R1_001.fastq - F3D1_S189_L001_R2_001.fastq (files 12 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 3 secs to assemble 5869 reads.
+
+
+>>>>>	Processing file pair F3D2_S190_L001_R1_001.fastq - F3D2_S190_L001_R2_001.fastq (files 13 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 10 secs to assemble 19620 reads.
+
+
+>>>>>	Processing file pair F3D3_S191_L001_R1_001.fastq - F3D3_S191_L001_R2_001.fastq (files 14 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 4 secs to assemble 6758 reads.
+
+
+>>>>>	Processing file pair F3D5_S193_L001_R1_001.fastq - F3D5_S193_L001_R2_001.fastq (files 15 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 3 secs to assemble 4448 reads.
+
+
+>>>>>	Processing file pair F3D6_S194_L001_R1_001.fastq - F3D6_S194_L001_R2_001.fastq (files 16 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 4 secs to assemble 7989 reads.
+
+
+>>>>>	Processing file pair F3D7_S195_L001_R1_001.fastq - F3D7_S195_L001_R2_001.fastq (files 17 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 3 secs to assemble 5129 reads.
+
+
+>>>>>	Processing file pair F3D8_S196_L001_R1_001.fastq - F3D8_S196_L001_R2_001.fastq (files 18 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 4 secs to assemble 5294 reads.
+
+
+>>>>>	Processing file pair F3D9_S197_L001_R1_001.fastq - F3D9_S197_L001_R2_001.fastq (files 19 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 4 secs to assemble 7070 reads.
+
+
+>>>>>	Processing file pair Mock_S280_L001_R1_001.fastq - Mock_S280_L001_R2_001.fastq (files 20 of 20)	<<<<<
+Making contigs...
+Done.
+
+It took 3 secs to assemble 4779 reads.
+
+It took 86 secs to process 152360 sequences.
+
+Group count: 
+F3D0	7793
+F3D1	5869
+F3D141	5958
+F3D142	3183
+F3D143	3178
+F3D144	4827
+F3D145	7377
+F3D146	5021
+F3D147	17070
+F3D148	12405
+F3D149	13083
+F3D150	5509
+F3D2	19620
+F3D3	6758
+F3D5	4448
+F3D6	7989
+F3D7	5129
+F3D8	5294
+F3D9	7070
+Mock	4779
+
+Total of all groups is 152360
+
+Output File Names: 
+stability.trim.contigs.fasta
+stability.trim.contigs.qual
+stability.contigs.report
+stability.scrap.contigs.fasta
+stability.scrap.contigs.qual
+stability.contigs.groups
+
+[WARNING]: your sequence names contained ':'.  I changed them to '_' to avoid problems in your downstream analysis.
+
+mothur > screen.seqs(fasta=stability.trim.contigs.fasta, group=stability.contigs.groups, maxambig=1, maxlength=275, processors=8)
+
+Using 8 processors.
+
+Output File Names: 
+stability.trim.contigs.good.fasta
+stability.trim.contigs.bad.accnos
+stability.contigs.good.groups
+
+
+It took 22 secs to screen 152360 sequences.
+
+mothur > unique.seqs(fasta=current)
+Using stability.trim.contigs.good.fasta as input file for the fasta parameter.
+140059	23426
+
+Output File Names: 
+stability.trim.contigs.good.names
+stability.trim.contigs.good.unique.fasta
+
+
+mothur > count.seqs(name=current, group=current)
+Using stability.contigs.good.groups as input file for the group parameter.
+Using stability.trim.contigs.good.names as input file for the name parameter.
+
+Using 8 processors.
+It took 3 secs to create a table for 140059 sequences.
+
+
+Total number of sequences: 140059
+
+Output File Names: 
+stability.trim.contigs.good.count_table
+
+
+mothur > align.seqs(fasta=current, reference=silva.bacteria.fasta, flip=t)
+Using stability.trim.contigs.good.unique.fasta as input file for the fasta parameter.
+
+Using 8 processors.
+Unable to open silva.bacteria.fasta. Trying default /usr/analysis/tools/mothur-1.36.1/silva.bacteria.fasta
+
+Reading in the /usr/analysis/tools/mothur-1.36.1/silva.bacteria.fasta template sequences...	DONE.
+It took 23 to read  14956 sequences.
+[ERROR]: Could not open /usr/analysis/tools/mothur-1.36.1/silva.bacteria.8mer
+Aligning sequences from stability.trim.contigs.good.unique.fasta ...
+It took 58 secs to align 23426 sequences.
+
+
+Output File Names: 
+stability.trim.contigs.good.unique.align
+stability.trim.contigs.good.unique.align.report
+
+
+mothur > summary.seqs(fasta=current, count=current)
+Using stability.trim.contigs.good.count_table as input file for the count parameter.
+Using stability.trim.contigs.good.unique.align as input file for the fasta parameter.
+
+Using 8 processors.
+
+		Start	End	NBases	Ambigs	Polymer	NumSeqs
+Minimum:	13144	22587	250	0	3	1
+2.5%-tile:	13862	23444	252	0	3	3502
+25%-tile:	13862	23444	252	0	4	35015
+Median: 	13862	23444	252	0	4	70030
+75%-tile:	13862	23444	253	0	5	105045
+97.5%-tile:	13862	23444	253	1	6	136558
+Maximum:	13876	25294	270	1	12	140059
+Mean:	13862	23444	252.457	0.0798735	4.36113
+# of unique seqs:	23426
+total # of seqs:	140059
+
+Output File Names: 
+stability.trim.contigs.good.unique.summary
+
+It took 25 secs to summarize 140059 sequences.
+
+mothur > screen.seqs(fasta=current, count=current, summary=current, start=13862, end=23444, maxhomop=8)
+Using stability.trim.contigs.good.count_table as input file for the count parameter.
+Using stability.trim.contigs.good.unique.align as input file for the fasta parameter.
+Using stability.trim.contigs.good.unique.summary as input file for the summary parameter.
+
+Using 8 processors.
+
+Output File Names: 
+stability.trim.contigs.good.unique.good.summary
+stability.trim.contigs.good.unique.good.align
+stability.trim.contigs.good.unique.bad.accnos
+stability.trim.contigs.good.good.count_table
+
+
+It took 47 secs to screen 23426 sequences.
+
+mothur > filter.seqs(fasta=current, vertical=T, trump=.)
+Using stability.trim.contigs.good.unique.good.align as input file for the fasta parameter.
+
+Using 8 processors.
+Creating Filter... 
+
+
+Running Filter... 
+
+
+
+Length of filtered alignment: 394
+Number of columns removed: 49606
+Length of the original alignment: 50000
+Number of sequences used to construct filter: 23218
+
+Output File Names: 
+stability.filter
+stability.trim.contigs.good.unique.good.filter.fasta
+
+
+mothur > unique.seqs(fasta=current, count=current)
+Using stability.trim.contigs.good.good.count_table as input file for the count parameter.
+Using stability.trim.contigs.good.unique.good.filter.fasta as input file for the fasta parameter.
+23218	23214
+
+Output File Names: 
+stability.trim.contigs.good.unique.good.filter.count_table
+stability.trim.contigs.good.unique.good.filter.unique.fasta
+
+
+mothur > count.seqs(name=current,group=current)
+Using stability.contigs.good.groups as input file for the group parameter.
+Using stability.trim.contigs.good.names as input file for the name parameter.
+
+Using 8 processors.
+It took 2 secs to create a table for 140059 sequences.
+
+
+Total number of sequences: 140059
+
+Output File Names: 
+stability.trim.contigs.good.count_table
+
+
+mothur > pre.cluster(fasta=current, count=current, diffs=2)
+Using stability.trim.contigs.good.count_table as input file for the count parameter.
+Using stability.trim.contigs.good.unique.good.filter.unique.fasta as input file for the fasta parameter.
+
+Using 8 processors.
+
+Processing group F3D141:
+
+Using 8 processors.
+
+Processing group F3D143:
+
+Using 8 processors.
+
+Processing group F3D145:
+
+Using 8 processors.
+
+Processing group F3D147:
+
+Using 8 processors.
+
+Processing group F3D150:
+981	389	592
+Total number of sequences before pre.cluster was 981.
+pre.cluster removed 592 sequences.
+
+
+Using 8 processors.
+
+Processing group F3D5:
+
+Using 8 processors.
+
+1515	505	1010
+Total nuProcessing group F3D8:
+It took 0 secs to cluster 981 sequences.
+
+Processing group F3D144:
+1867	620	1247
+Total number of sequences before pre.cluster was 1867.
+pre.cluster removed 1247 sequences.
+
+1199	450	749
+Total number of sequences before pre.cluster was 1199.
+pre.cluster removed 749 sequences.
+
+1318	469	849
+Total number of sequences before pre.cluster was 1318.
+pre.cluster removed 849 sequences.
+
+1651	599	1052
+Total number of sequences before pre.cluster was 1651.
+pre.cluster removed 1052 sequences.
+
+It took 0 secs to cluster 1515 sequences.
+
+Processing group F3D142:
+1295	483	812
+Total number of sequences before pre.cluster was 1295.
+pre.cluster removed 812 sequences.
+
+2035	663	1372
+Total number of sequences before pre.cluster was 2035.
+pre.cluster removed 1372 sequences.
+
+It took 1 secs to cluster 1199 sequences.
+
+Processing group F3D6:
+939	361	578
+Total number of sequences before pre.cluster was 939.
+pre.cluster removed 578 sequences.
+
+It took 1 secs to cluster 1318 sequences.
+
+Processing group F3D9:
+It took 1 secs to cluster 1867 sequences.
+
+Processing group F3D146:
+It took 1 secs to cluster 1651 sequences.
+
+Processing group F3D2:
+3909	1098	2811
+Total number of sequences before pre.cluster was 3909.
+pre.cluster removed 2811 sequences.
+It took 1 secs to cluster 939 sequences.
+It took 1 secs to cluster 1295 sequences.
+1830	577	1253
+Total number of sequences before pre.cluster was 1830.
+pre.cluster removed 1253 sequences.
+
+It took 1 secs to cluster 2035 sequences.
+
+Processing group F3D1:
+1724	582	1142
+Total number of sequences before pre.cluster was 1724.
+pre.cluster removed 1142 sequences.
+
+1407	579	828
+Total number of sequences before pre.cluster was 1407.
+pre.cluster removed 828 sequences.
+
+It took 1 secs to cluster 1830 sequences.
+
+Processing group F3D7:
+It took 1 secs to cluster 1724 sequences.
+
+Processing group Mock:
+1567	538	1029
+Total number of sequences before pre.cluster was 1567.
+pre.cluster removed 1029 sequences.
+
+812	138	674
+Total number of sequences before pre.cluster was 812.
+pre.cluster removed 674 sequences.
+
+It took 1 secs to cluster 1407 sequences.
+1172	376	796
+Total number of sequences before pre.cluster was 1172.
+pre.cluster removed 796 sequences.
+
+It took 2 secs to cluster 3909 sequences.
+
+Processing group F3D148:
+It took 0 secs to cluster 812 sequences.
+3755	973	2782
+Total number of sequences before pre.cluster was 3755.
+pre.cluster removed 2782 sequences.
+
+It took 1 secs to cluster 1567 sequences.
+It took 0 secs to cluster 1172 sequences.
+It took 2 secs to cluster 3755 sequences.
+
+Processing group F3D3:
+2951	844	2107
+Total number of sequences before pre.cluster was 2951.
+pre.cluster removed 2107 sequences.
+
+1496	461	1035
+Total number of sequences before pre.cluster was 1496.
+pre.cluster removed 1035 sequences.
+
+It took 1 secs to cluster 2951 sequences.
+
+Processing group F3D149:
+It took 0 secs to cluster 1496 sequences.
+3083	943	2140
+Total number of sequences before pre.cluster was 3083.
+pre.cluster removed 2140 sequences.
+
+It took 0 secs to cluster 3083 sequences.
+It took 7 secs to run pre.cluster.
+
+Output File Names: 
+stability.trim.contigs.good.unique.good.filter.unique.precluster.fasta
+stability.trim.contigs.good.unique.good.filter.unique.precluster.count_table
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D0.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D1.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D141.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D142.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D143.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D144.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D145.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D146.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D147.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D148.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D149.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D150.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D2.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D3.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D5.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D6.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D7.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D8.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.F3D9.map
+stability.trim.contigs.good.unique.good.filter.unique.precluster.Mock.map
+
+
+mothur > chimera.uchime(fasta=current, count=current, dereplicate=t)
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.count_table as input file for the count parameter.
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.fasta as input file for the fasta parameter.
+
+Using 8 processors.
+
+uchime by Robert C. Edgar
+http://drive5.com/uchime
+This code is donated to the public domain.
+
+Checking sequences from stability.trim.contigs.good.unique.good.filter.unique.precluster.fasta ...
+
+It took 2 secs to check 389 sequences from group F3D143.
+
+It took 3 secs to check 505 sequences from group F3D141.
+
+It took 3 secs to check 469 sequences from group F3D8.
+
+It took 3 secs to check 450 sequences from group F3D5.
+
+It took 4 secs to check 599 sequences from group F3D150.
+
+It took 4 secs to check 620 sequences from group F3D145.
+
+It took 2 secs to check 361 sequences from group F3D142.
+
+It took 3 secs to check 483 sequences from group F3D144.
+32540 here
+
+It took 5 secs to check 663 sequences from group F3D0.
+
+It took 4 secs to check 577 sequences from group F3D6.
+
+It took 4 secs to check 579 sequences from group F3D146.
+
+It took 5 secs to check 582 sequences from group F3D9.
+
+It took 0 secs to check 138 sequences from group Mock.
+
+It took 4 secs to check 538 sequences from group F3D1.
+
+It took 2 secs to check 376 sequences from group F3D7.
+
+It took 8 secs to check 973 sequences from group F3D2.
+
+It took 12 secs to check 1098 sequences from group F3D147.
+
+It took 2 secs to check 461 sequences from group F3D3.
+
+It took 6 secs to check 844 sequences from group F3D148.
+
+It took 7 secs to check 943 sequences from group F3D149.
+
+Output File Names: 
+stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table
+stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.chimeras
+stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.accnos
+
+
+mothur > remove.seqs(fasta=current, accnos=current)
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.accnos as input file for the accnos parameter.
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.fasta as input file for the fasta parameter.
+[WARNING]: This command can take a namefile and you did not provide one. The current namefile is stability.trim.contigs.good.names which seems to match stability.trim.contigs.good.unique.good.filter.unique.precluster.fasta.
+Removed 3488 sequences from your fasta file.
+
+Output File Names: 
+stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta
+
+
+mothur > classify.seqs(fasta=current, count=current, reference=trainset9_032012.pds.fasta, taxonomy=trainset9_032012.pds.tax, cutoff=80)
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table as input file for the count parameter.
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta as input file for the fasta parameter.
+
+Using 8 processors.
+Unable to open trainset9_032012.pds.fasta. Trying default /usr/analysis/tools/mothur-1.36.1/trainset9_032012.pds.fasta
+Unable to open trainset9_032012.pds.tax. Trying default /usr/analysis/tools/mothur-1.36.1/trainset9_032012.pds.tax
+Reading template taxonomy...     DONE.
+Reading template probabilities...     DONE.
+It took 8 seconds get probabilities. 
+Classifying sequences from stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta ...
+
+It took 8 secs to classify 3777 sequences.
+
+
+It took 1 secs to create the summary file for 3777 sequences.
+
+
+Output File Names: 
+stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.taxonomy
+stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.tax.summary
+
+
+mothur > remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.count_table as input file for the count parameter.
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.fasta as input file for the fasta parameter.
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.taxonomy as input file for the taxonomy parameter.
+
+[NOTE]: The count file should contain only unique names, so mothur assumes your fasta, list and taxonomy files also contain only uniques.
+
+
+Output File Names: 
+stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy
+stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta
+stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table
+
+
+mothur > remove.groups(fasta=current, count=current, taxonomy=current, groups=Mock)
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table as input file for the count parameter.
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta as input file for the fasta parameter.
+Using stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy as input file for the taxonomy parameter.
+
+[NOTE]: The count file should contain only unique names, so mothur assumes your fasta, list and taxonomy files also contain only uniques.
+
+Removed 64 sequences from your fasta file.
+Removed 4385 sequences from your count file.
+Removed 64 sequences from your taxonomy file.
+
+Output File names: 
+stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.fasta
+stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.pick.count_table
+stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.pick.taxonomy
+
+
+mothur > get.current()
+
+Current files saved by mothur:
+accnos=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.accnos
+fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.fasta
+group=stability.contigs.good.groups
+name=stability.trim.contigs.good.names
+taxonomy=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.pick.taxonomy
+count=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.pick.count_table
+processors=8
+summary=stability.trim.contigs.good.unique.summary
+
+Current default directory saved by mothur: /usr/analysis/tools/mothur-1.36.1/
+
+Current working directory: /gluster/scholzmb/Mothur/temp/MothurWorkflowMaster/data/
+
+mothur > quit()

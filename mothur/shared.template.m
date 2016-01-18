@@ -22,7 +22,7 @@
 # 
 ##############
 
-load.logfile(logfile=mothur.quality)
+set.current(XXX)
 set.logfile(name=mothur.shared)
 
 # Set the current files to the ones we generated from the quality sequencing
