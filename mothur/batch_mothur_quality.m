@@ -1,112 +1,54 @@
-##############
-#
-# This is a batch file for running through the quality filtering steps of mothur
-#
-#  Original Script/comments written by by Dr. Tracy Teal
+#Mothur first steps assembled 2/8/2016 by matthew scholz
 
-# We will make use of the 'current' settings, so we don't have to type out the whole 
-# file names in each step. This also reduces typo errors and ensures you're using
-# the file that was created from the previous step.
-#
-# This example uses the data and steps in the Schloss MiSeq SOP
-# http://www.mothur.org/wiki/MiSeq_SOP
-# It does not include the summary.seqs commands and assumes that you have looked
-# at your output to ensure that you have made the appropriate decisions for your
-# quality filtering parameters. If you haven't gone through this process at least
-# once and examined your output, do that first!
-# 
-##############
-set.logfile(name=mothur.quality)
-
-
-# Make contigs
-# Join the paired ends
+#assemble/qc/qa/count
 make.contigs(file=stability.files, processors=8)
-
-# Screen seqs
-# Get rid of sequences that are the wrong length or have ambiguous base pairs.
-# We're limiting the length to 275 because we expect our sequences to be about 251 bp
-# and this gives some flexibility
-
-#testing to see if 1 ambig is acceptable
-screen.seqs(fasta=stability.trim.contigs.fasta, group=stability.contigs.groups, maxambig=1, maxlength=275, processors=8)
-
-# Get only the unique sequences
-# This reduces our data set size for further processing
-# No sequences are lost during this step. We're just generating a FASTA file of the unique
-# sequences and keeping track of their numbers in each sample in a different file.
+screen.seqs(fasta=current, group=current, maxambig=0, maxlength=275)
 unique.seqs(fasta=current)
-
-# Simplify the names and groups files 
-#Generate new count file using uniques from previous command
 count.seqs(name=current, group=current)
+summary.seqs(count=current)
 
-# We're assuming that we already made the pcr file that's the appropriate size
-# for our amplicons.
-# Here it's been created, is in this directory and is called silva.v4.fasta
-# Align our sequences to that reference
-# This is one of the most computationally intensive steps in this file
-# reference can be changed.
-align.seqs(fasta=current, reference=silva.bacteria.fasta, flip=t)
+#skip this because we should already have it
+#pcr.seqs(fasta=silva.bacteria.fasta, start=11894, end=25319, keepdots=F)
+#system(mv silva.bacteria.pcr.fasta silva.v4.fasta)
 
-
-# Summarize the alignment information
-# We'll need the output of this in the next step
+#align to silva
+align.seqs(fasta=current, reference=silva.v4.fasta)
 summary.seqs(fasta=current, count=current)
-
-# Get rid of sequences that don't align well
-# ASSUMES V4 PCR
-screen.seqs(fasta=current, count=current, summary=current, start=13862, end=23444, maxhomop=8)
-
-# To reduce dataset size, get rid of columns with no information
-# Get rid of columns in the file that only contain gaps '-' or overhang '.'
-# MAKES FASTA uniform, deletes un-useful data, if screen is done wrong, will result in size 0 files
+screen.seqs(fasta=current, count=current, summary=current, start=1968, end=11550, maxhomop=8)
+summary.seqs(fasta=current, count=current)
 filter.seqs(fasta=current, vertical=T, trump=.)
-
-# Now that we've aligned the sequences, we might see more that are identical
-# Pare the dataset down to just the unique aligned ones
-# NEED TO COUNT again
 unique.seqs(fasta=current, count=current)
-count.seqs(name=current,group=current)
 
-
-# Pre-cluster to reduce dataset size
+#cluster
 pre.cluster(fasta=current, count=current, diffs=2)
-
-# Check for chimeras and remove them
-# We're doing the chimera checking using the abundant reads as the reference
 chimera.uchime(fasta=current, count=current, dereplicate=t)
 remove.seqs(fasta=current, accnos=current)
+summary.seqs(fasta=current, count=current)
 
-# Classify the sequences and remove ones that aren't bacterial
-# We're using the Silva training sets as references: trainset9_032013
+#classify/remove useless
 classify.seqs(fasta=current, count=current, reference=trainset9_032012.pds.fasta, taxonomy=trainset9_032012.pds.tax, cutoff=80)
 remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)
 
-# If available, Take out the Mock sample from the dataset
-# remove.groups(fasta=current, count=current, taxonomy=current, groups=Mock)
+#OTU Analysis
+cluster.split(fasta=current, count=current, taxonomy=current, splitmethod=classify, taxlevel=4, cutoff=0.15)
+make.shared(list=current, count=current, label=0.03) 
+classify.otu(list=current, count=current, taxonomy=current, label=0.03)
 
-# Now we have a good set of quality sequences!
-
-# Print out the last things we used so we know the last set of files generated.
 get.current()
 
-# We'll copy these to a shorter filename and use them in the next steps
-# We will need the *.fasta, *.taxonomy, *.count_table files
-# e.g
-#accnos=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.accnos
-#fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.pick.fasta
-#group=stability.contigs.good.groups
-#name=stability.trim.contigs.good.names
-#taxonomy=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.pick.taxonomy
-#count=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.pick.count_table
-#processors=8
-#summary=stability.trim.contigs.good.unique.summary
+#OTU/Phylotype
+phylotype(taxonomy=current)
+#shared, name, group, processors, large, groups, seed
+make.shared(list=current, count=current, label=1)
+classify.otu(list=current, count=current, taxonomy=current, label=1)
 
-#if using MOCK, add extra .pick
-system(ln -s stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta quality_sequences.fasta)
-system(ln -s stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy quality_sequences.taxonomy)
-system(ln -s stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table quality_sequences.count_table)
-system(ln -s stability.contigs.good.groups quality_sequences.groups)
+get.current()
 
-quit()
+#OTU/Phylogenetic
+dist.seqs(fasta=current, output=lt, processors=8)
+clearcut(phylip=current)
+
+#OTU analysis
+count.groups(shared=current)
+sub.sample(shared=current)
+

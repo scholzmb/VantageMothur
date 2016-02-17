@@ -33,6 +33,6 @@ while(<FILE>){
 }
 
 my $string = join ",", @outString;
-my $cmd = "sed s/XXX/$string/g shared.template.m > batch_mothur_shared.inputs.m";
+my $cmd = "sed s/XXX/$string/g ../mothur/shared.template.m > batch_mothur_shared.inputs.m";
 system($cmd);
 

@@ -29,21 +29,15 @@ set.logfile(name=mothur.shared)
 # At the end we renamed our really long files to something shorter, so we
 # can use those names here. Put in your own names if you did something different.
 
-# Calculate the distance matrix
-#dist.seqs(fasta=current, cutoff=0.2)
-
 # Cluster the sequences
 # We're using cluster.split so it can finish more quickly (i.e. in our lifetime)
-cluster.split(fasta=current, count=current, taxonomy=current, splitmethod=classify, taxlevel=4, cutoff=0.15)
+cluster.split(fasta=current, count=current, taxonomy=silva.full.taxonomy, splitmethod=classify, taxlevel=4, cutoff=0.15)
 
 # Make the shared file for 0.03 distance
 make.shared(list=current, count=current, label=0.03)
 
-#make rarefaction curve
-rarefaction.single(shared=current)
-
 #reclassify
-classify.otu(list=current,count=current,taxonomy=current,label=0.03)
+classify.otu(list=current,count=current,taxonomy=silva.full.taxonomy, template=silva.full.taxonomy,label=0.03)
 
 #generate phylotype information
 phylotype(taxonomy=current)
@@ -52,7 +46,7 @@ phylotype(taxonomy=current)
 make.shared(list=current, count=current,label=1)
 
 #classify them (names for OTUs)
-classify.otu(list=current,count=current,taxonomy=current,label=1)
+classify.otu(list=current,count=current,taxonomy=silva.full.taxonomy,label=1)
 
 #######################
 # written by Matthew Scholz
@@ -76,14 +70,10 @@ sub.sample(shared=current)
 #richness = # OTUs
 #diversity = evenness of distribution of OTUs
 
-
 #generate plotable stats for Chao1 and invsimpson for each sample, 100 otu intervals
-
 #chao2 is measure of richness
 #invsimpson = diversity
 collect.single(shared=current,calc=chao-invsimpson,freq=100)
-
-
 
 #generate rarefaction data using sobs (observations) 100 otu intervals
 rarefaction.single(shared=current,calc=sobs,freq=100)
