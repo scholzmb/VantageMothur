@@ -31,22 +31,22 @@ set.logfile(name=mothur.shared)
 
 # Cluster the sequences
 # We're using cluster.split so it can finish more quickly (i.e. in our lifetime)
-cluster.split(fasta=current, count=current, taxonomy=silva.full.taxonomy, splitmethod=classify, taxlevel=4, cutoff=0.15)
+#cluster.split(fasta=current, count=current, taxonomy=silva.full.taxonomy, splitmethod=classify, taxlevel=4, cutoff=0.15)
 
 # Make the shared file for 0.03 distance
-make.shared(list=current, count=current, label=0.03)
+#make.shared(list=current, count=current, label=0.03)
 
 #reclassify
-classify.otu(list=current,count=current,taxonomy=silva.full.taxonomy, template=silva.full.taxonomy,label=0.03)
+#classify.otu(list=current,count=current,taxonomy=silva.full.taxonomy, template=silva.full.taxonomy,label=0.03)
 
 #generate phylotype information
-phylotype(taxonomy=current)
+#phylotype(taxonomy=current)
 
 #make genus level table for phylogeny
-make.shared(list=current, count=current,label=1)
+#make.shared(list=current, count=current,label=1)
 
 #classify them (names for OTUs)
-classify.otu(list=current,count=current,taxonomy=silva.full.taxonomy,label=1)
+#classify.otu(list=current,count=current,taxonomy=silva.full.taxonomy,label=1)
 
 #######################
 # written by Matthew Scholz
