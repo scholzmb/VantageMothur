@@ -129,7 +129,7 @@ pcoa(phylip=current)
 
 
 #Nmds using 2-4 dimensions:
-nmds(phylip=current, groups=experimental.design, mindim=2, maxdim=4)
+nmds(phylip=current, mindim=2, maxdim=4)
 
 #what about the ACTUAL beta diversity of groups?  
 #amova tests difference between groups vs. variance of groups using "centroid" of each groups' OTU differences
