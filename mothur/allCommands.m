@@ -8,10 +8,6 @@ unique.seqs(fasta=current)
 count.seqs(name=current, group=current)
 summary.seqs(count=current)
 
-#skip this because we should already have it
-#pcr.seqs(fasta=silva.bacteria.fasta, start=11894, end=25319, keepdots=F)
-#system(mv silva.bacteria.pcr.fasta silva.v4.fasta)
-
 #align to silva
 align.seqs(fasta=current, reference=silva.v4.fasta)
 summary.seqs(fasta=current, count=current)
@@ -19,6 +15,17 @@ screen.seqs(fasta=current, count=current, summary=current, start=1968, end=11550
 summary.seqs(fasta=current, count=current)
 filter.seqs(fasta=current, vertical=T, trump=.)
 unique.seqs(fasta=current, count=current)
+
+#set.current(accnos=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.accnos, fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, group=stability.contigs.good.groups, name=stability.trim.contigs.good.names, taxonomy=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table, processors=8, summary=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.summary)
+
+#remove all lineages present in blank 
+summary.seqs(fasta=current, count=current)
+get.groups(fasta=current, count=current, groups=SB_104-SB_105-SB_106-SB_107)
+list.seqs(fasta=current)
+remove.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, accnos=current)
+remove.seqs(count=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table, accnos=current)
+list.seqs(count=current)
+summary.seqs(fasta=current, count=current)
 
 #cluster
 pre.cluster(fasta=current, count=current, diffs=2)
@@ -29,6 +36,9 @@ summary.seqs(fasta=current, count=current)
 #classify/remove useless
 classify.seqs(fasta=current, count=current, reference=trainset9_032012.pds.fasta, taxonomy=trainset9_032012.pds.tax, cutoff=80)
 remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)
+
+
+
 
 #OTU Analysis
 cluster.split(fasta=current, count=current, taxonomy=current, splitmethod=classify, taxlevel=4, cutoff=0.15)
@@ -148,7 +158,7 @@ pcoa(phylip=current)
 
 
 #Nmds using 2-4 dimensions:
-nmds(phylip=current, groups=experimental.design, mindim=2, maxdim=4)
+nmds(phylip=current, mindim=2, maxdim=4)
 
 #what about the ACTUAL beta diversity of groups?  
 #amova tests difference between groups vs. variance of groups using "centroid" of each groups' OTU differences
