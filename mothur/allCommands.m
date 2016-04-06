@@ -16,14 +16,14 @@ summary.seqs(fasta=current, count=current)
 filter.seqs(fasta=current, vertical=T, trump=.)
 unique.seqs(fasta=current, count=current)
 
-#set.current(accnos=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.accnos, fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, group=stability.contigs.good.groups, name=stability.trim.contigs.good.names, taxonomy=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy, count=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table, processors=8, summary=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.summary)
+get.current()
 
 #remove all lineages present in blank 
 summary.seqs(fasta=current, count=current)
-get.groups(fasta=current, count=current, groups=SB_104-SB_105-SB_106-SB_107)
+get.groups(fasta=current, count=current, groups=Blank_104-Blank_105-Blank_106-Blank_107)
 list.seqs(fasta=current)
-remove.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.fasta, accnos=current)
-remove.seqs(count=stability.trim.contigs.good.unique.good.filter.unique.precluster.denovo.uchime.pick.pick.count_table, accnos=current)
+remove.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.fasta, accnos=current)
+remove.seqs(count=stability.trim.contigs.good.unique.good.filter.count_table, accnos=current)
 list.seqs(count=current)
 summary.seqs(fasta=current, count=current)
 
