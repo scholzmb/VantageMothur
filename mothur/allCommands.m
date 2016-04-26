@@ -1,5 +1,5 @@
 #Mothur first steps assembled 2/8/2016 by matthew scholz
-set.logfile(name=mothur.quality)
+set.logfile(name=testingSetCurrent.log)
 
 #assemble/qc/qa/count
 make.contigs(file=stability.files, processors=8)
@@ -8,24 +8,44 @@ unique.seqs(fasta=current)
 count.seqs(name=current, group=current)
 summary.seqs(count=current)
 
-#align to silva
-align.seqs(fasta=current, reference=silva.v4.fasta)
-summary.seqs(fasta=current, count=current)
-screen.seqs(fasta=current, count=current, summary=current, start=1968, end=11550, maxhomop=8)
-summary.seqs(fasta=current, count=current)
-filter.seqs(fasta=current, vertical=T, trump=.)
-unique.seqs(fasta=current, count=current)
 
 get.current()
+set.current(fasta=stability.trim.contigs.good.unique.fasta, group=stability.contigs.good.groups, name=stability.trim.contigs.good.names, qfile=stability.trim.contigs.qual, count=stability.trim.contigs.good.count_table, processors=8,summary=stability.trim.contigs.good.unique.summary)
 
 #remove all lineages present in blank 
 summary.seqs(fasta=current, count=current)
-get.groups(fasta=current, count=current, groups=Blank_104-Blank_105-Blank_106-Blank_107)
+get.groups(fasta=current, count=current, groups=Blank_1-Blank_2-Blank_3-Blank_4)
 list.seqs(fasta=current)
-remove.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.fasta, accnos=current)
+remove.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.fasta, accnos=current, name=current)
 remove.seqs(count=stability.trim.contigs.good.unique.good.filter.count_table, accnos=current)
 list.seqs(count=current)
 summary.seqs(fasta=current, count=current)
+get.current()
+
+#Defaults for refDB
+#To use silva/greengenes
+#(reference=silva.nr_v123.align, taxonomy=silva.nr_v123.tax) 
+#to use RDP (recommended? for fecal microbiome?)
+#(reference=trainset14_032015.rdp.fasta, taxonomy=trainset14_032015.rdp.tax)
+
+align.seqs(fasta=current, template=silva.nr_v123.align)
+summary.seqs(fasta=current, count=current)
+
+#for Silva/greengenes
+screen.seqs(fasta=current, count=current, summary=current, start=13862, end=23444, maxhomop=8, processors=8)
+#for RDP
+#screen.seqs(fasta=current, count=current, summary=current, start=13862, end=23444, maxhomop=8, processors=8)
+
+summary.seqs(fasta=current, count=current)
+filter.seqs(fasta=current, vertical=T, trump=.)
+unique.seqs(fasta=current, count=current)
+get.current()
+
+#classify/remove useless
+align.seqs(fasta=current, reference=silva.nr_v123.align)
+classify.seqs(fasta=current, count=current, reference=silva.nr_v123.align, taxonomy=silva.nr_v123.tax, cutoff=80)
+remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)
+get.current()
 
 #cluster
 pre.cluster(fasta=current, count=current, diffs=2)
@@ -33,15 +53,10 @@ chimera.uchime(fasta=current, count=current, dereplicate=t)
 remove.seqs(fasta=current, accnos=current)
 summary.seqs(fasta=current, count=current)
 
-#classify/remove useless
-classify.seqs(fasta=current, count=current, reference=trainset9_032012.pds.fasta, taxonomy=trainset9_032012.pds.tax, cutoff=80)
-remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)
-
-
-
 
 #OTU Analysis
-cluster.split(fasta=current, count=current, taxonomy=current, splitmethod=classify, taxlevel=4, cutoff=0.15)
+classify.seqs(fasta=current, count=current, reference=silva.nr_v123.align, taxonomy=silva.nr_v123.tax, cutoff=80)
+cluster.split(fasta=current, taxonomy=current, count=current, splitmethod=classify, taxlevel=4, cutoff=0.15)
 make.shared(list=current, count=current, label=0.03) 
 classify.otu(list=current, count=current, taxonomy=current, label=0.03)
 
@@ -132,19 +147,17 @@ heatmap.sim(phylip=current)
 dist.shared(shared=current, calc=thetayc, subsample=T)
 heatmap.sim(phylip=current)
 
+get.current()
 
 #thetayc tree is used for following analysis
-
-
 #summary.shared() makes an analysis based on declared groups: not really useful for batch analysis
 #summary.shared(calc=sharedchao,groups=XXX-XYY-XYX)
 #venn(groups=XXX-XYY-XYX)
-
 #probably requires groups to work.
+
 tree.shared(phylip=current)
 
 #assume group file = "experimental.design"
-
 #let's look at the likelihood that parsimony is similar/diff between groups:
 parsimony(tree=current,group=experimental.design,groups=all)
 
@@ -155,7 +168,6 @@ unifrac.weighted(tree=current,group=experimental.design,groups=all)
 #we probably won't like it compared to nmds:
 
 pcoa(phylip=current)
-
 
 #Nmds using 2-4 dimensions:
 nmds(phylip=current, mindim=2, maxdim=4)
@@ -171,7 +183,7 @@ homova(phylip=current, design=experimental.design)
 #can change numaxes depending on structure
 
 #if metatadata, include metadata=metadata.txt
-corr.axes(axes=current, shared=current, method=spearman, numaxes=3)
+corr.axes(axes=stability.trim.contigs.good.unique.good.filter.unique.pick.good.filter.unique.pick.precluster.pick.nr_v123.wang.tx.1.subsample.thetayc.1.lt.ave.nmds.axes, shared=current, method=spearman, numaxes=3)
 
 #let's predict how many communities the data indicate, without groups:
 get.communitytype(shared=current)
