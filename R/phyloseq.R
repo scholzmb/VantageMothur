@@ -14,6 +14,7 @@ list_file="MGSAT.list"
 group_file="MGSAT.groups"
 shared_file="MGSAT.shared"
 constaxonomy_file="MGSAT.cons.taxonomy"
+tax_table="Rank4.txt"
 biom_file="MGSAT.0.03.biom"
 #rarefaction = "example.rarefaction"
 nmds = "MGSAT.nmds.axes.nmds"
@@ -21,41 +22,81 @@ nmds = "MGSAT.nmds.axes.nmds"
 
 #import tree
 tree<-import_mothur(mothur_tree_file=tree_file)
+
 #importMothur <- import_mothur(mothur_tree_file = tree_file, mothur_list_file = list_file, mothur_group_file = group_file, mothur_shared_file = shared_file, mothur_constaxonomy_file = constaxonomy_file, cutoff=0.03)
 
+#NMDS
+c<-read.table(nmds, header=T)
 
 #import biom
 biom_otu_tax <- import_biom(biom_file)
 
+pdf("16SCharts.pdf")
 
 #let's have fune with the biomfile
 GP <- prune_taxa(taxa_sums(biom_otu_tax) > 0, biom_otu_tax)
-GP1 <- subset_taxa(GP, Rank4=="Lactobacillales")
-plot_bar(GP1, fill="Rank6")
-p <- plot_richness(GP, measures=alpha_meas)
-p
+
+GP2= sample_data(c)
+GP2 = merge_phyloseq(GP2, GP)
+GP3 <- GP2
+#NGP= transform_sample_counts(GP3, threshrankfun(100))
+NGP <- GP3
+plot_richness(GP3, measures=c("Observed","InvSimpson", "Shannon"))
+
+#plot_bar(NGP, fill="Rank4")
+#p <- plot_richness(GP, measures=alpha_meas)
+#p
 
 #rarefaction plot (not implemented)
 
 #stacked bar
 #mothur biom uses RankX instead of phylogeny labels in biom file...
-plot_bar(biom_otu_tax, fill="Rank4")
+plot_bar(biom_otu_tax, fill="Rank2")
+
+#family=c("Enterobacteriales")
+for(level in c("4")){
+  tax_table = paste("Rank", level, ".txt", sep="")
+  taxa <- read.table(tax_table, header=F, skip=1)
+  family <- as.vector(taxa[,1])
+  NGP <- GP3
+  for (i in family){
+    MBS <- paste(i,sep="")
+    GP4 <- subset_taxa(NGP, Rank4==MBS) 
+    print(plot_bar(GP4, fill="Treatment", title=MBS) +aes(group= Treatment ))
+    #print(plot_heatmap(GP4, fill="OTU", title=MBS, taxa.label="Rank6"))
+  }
+}
+
+for(level in c("5")){
+  tax_table = paste("Rank", level, ".txt", sep="")
+  taxa <- read.table(tax_table, header=F, skip=1)
+  family <- as.vector(taxa[,1])
+  NGP <- GP3
+  for (i in family){
+    MBS <- paste(i,sep="")
+    GP4 <- subset_taxa(NGP, Rank5==MBS) 
+    print(plot_bar(GP4, fill="Treatment", title=MBS) +aes(group= Treatment ))
+    #print(plot_heatmap(GP4, fill="OTU", title=MBS, taxa.label="Rank6"))
+  }
+}
 
 
-#heatmap
-plot_heatmap(biom_otu_tax)
-
+#heatmaps
+NGP <- GP3
+plot_heatmap(NGP, sample.order="Treatment", sample.label="Treatment", taxa.label="Rank4", title="All Taxa")
 plot_tree(tree, label="taxa_names", ladderize="left", plot.margin = 0.5)
 
-#NMDS
-c<-read.table(nmds, header=T)
+NGP = prune_taxa(names(sort(taxa_sums(GP3),TRUE)[1:50]), GP3)
+plot_heatmap(NGP, taxa.label="Rank4", sample.label="Treatment", sample.order = "Treatment", title = "50 Most abundant Taxa")
 
-#fix to use experimental.designc[
-high_salt<-c[c$Treatment=="high_salt", c(2,3)]
-normal_salt<-c[c$Treatment=="normal_salt", c(2,3)]
+ordinations= c("DCA", "CCA", "RDA", "NMDS", "MDS", "PCoA")
+for (i in ordinations){
+  ord <- paste(i,sep="")
+  label <- paste(c(i, "Ordination Plot", sep=" "))
+  PCA = ordinate(NGP, method=ord, distance = "bray")
+  j<- plot_ordination(NGP, PCA, color = "Treatment", title=label)+geom_point(size=8)
+  print(j)
+  
+}
 
-plot(high_salt, xlim=c(-.9,.9), ylim=c(-.9, .9), pch=16, cex=2, col="black", xlab="NMDS Axis 1", ylab="NMDS Axis 2")
-points(normal_salt, pch=16, col="grey", cex=2)
-
-legend(-.99, .99,inset=.5, bty="n", cex=.9, c("high_salt", "normal_salt"), col=c("black", "grey"), pch=c(16,16,16))
-
+dev.off()
