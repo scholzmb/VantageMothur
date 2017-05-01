@@ -2,11 +2,13 @@
 set.logfile(name=testingSetCurrent.log)
 
 #assemble/qc/qa/count
-make.contigs(file=stability.files, processors=8)
+#make.contigs(file=stability.files, processors=8)
+set.current(fasta=stability.trim.contigs.good.fasta, group=stability.contigs.good.groups)
 screen.seqs(fasta=current, group=current, maxambig=0, maxlength=275)
 unique.seqs(fasta=current)
 count.seqs(name=current, group=current)
 summary.seqs(count=current)
+quit()
 
 
 get.current()
@@ -14,13 +16,13 @@ set.current(fasta=stability.trim.contigs.good.unique.fasta, group=stability.cont
 
 #remove all lineages present in blank 
 summary.seqs(fasta=current, count=current)
-get.groups(fasta=current, count=current, groups=Blank_1-Blank_2-Blank_3-Blank_4)
-list.seqs(fasta=current)
-remove.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.fasta, accnos=current, name=current)
-remove.seqs(count=stability.trim.contigs.good.unique.good.filter.count_table, accnos=current)
-list.seqs(count=current)
-summary.seqs(fasta=current, count=current)
-get.current()
+#get.groups(fasta=current, count=current, groups=Blank_1-Blank_2-Blank_3-Blank_4)
+#list.seqs(fasta=current)
+#remove.seqs(fasta=stability.trim.contigs.good.unique.good.filter.unique.fasta, accnos=current, name=current)
+#remove.seqs(count=stability.trim.contigs.good.unique.good.filter.count_table, accnos=current)
+#list.seqs(count=current)
+#summary.seqs(fasta=current, count=current)
+#get.current()
 
 #Defaults for refDB
 #To use silva/greengenes
@@ -56,7 +58,7 @@ summary.seqs(fasta=current, count=current)
 
 #OTU Analysis
 classify.seqs(fasta=current, count=current, reference=silva.nr_v123.align, taxonomy=silva.nr_v123.tax, cutoff=80)
-cluster.split(fasta=current, taxonomy=current, count=current, splitmethod=classify, taxlevel=4, cutoff=0.15)
+cluster.split(fasta=current, taxonomy=current, count=current, method=dgc)
 make.shared(list=current, count=current, label=0.03) 
 classify.otu(list=current, count=current, taxonomy=current, label=0.03)
 
